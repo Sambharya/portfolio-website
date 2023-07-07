@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #fff;
+    background-color: #f4f5f5;
     color: #160870;
 }
 #header{
@@ -17,6 +17,8 @@ body{
 }
 .logo {
     width: auto;
+    height: 8cm;
+    padding-bottom: 2cm;
     float: left;
 }
 
@@ -451,7 +453,7 @@ p.tab-links {
   }
 
   nav ul {
-    background:rgb(247, 90, 90);
+    background:rgb(162, 197, 202);
     position: fixed;
     top: 0;
     right: 0;
