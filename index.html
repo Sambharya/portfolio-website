@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/74f44464a1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    
+                    <li><a href="#contact">contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Frontend-Devloper</p>
+                <h1>Hello! I'm <span>Abhishek Sambharya</span></h1>
+            </div>
+        </div>
+    </div>
+    <!-- -----about----- -->
+    <div id="about">
+        <div class="container">
+            <div class="row1">
+                <div class="about-col-1">
+                    <img src="images/abhi.jpg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About me</h1>
+                    <p>"Hello, I'm Abhishek Sambharya, a 3rd year B.Tech student at Delhi Technological University, specializing in Mathematics and Computing. Alongside my studies, I have developed a strong passion for frontend development, honing my skills to create engaging and user-friendly web interfaces." </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('Education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="Skills">
+                        <ul>
+                            <li><span>Proficient</span><br>C++</li>
+                            <li><span>Moderate</span><br>HTML,CSS,JavaScript</li>
+                            <li><span>Relevent cources</span><br> Data structure,<br> Algorithmic Design ans
+                                Analysis,<br>Object oriented
+                                Programming</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Experience">
+                        <ul>
+                            <li><span>PR-Coordinator</span><br> At IEEE(DTU) society</li>
+                            <li><span>Mentor</span><br> Mentored school students under the  Desh Ke Mentor  programme of Delhi government.
+                            
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><span>2021-2025</span><br>BTech in Mathematics and Computing <br> from Delhi Technological
+                                Univercity</li>
+                            <li><span>2020-2021</span><br>12th from BDS Vidya Mandir,Noida</li>
+                            <li><span>2018-2019</span><br>10th from BDS Vidya Mandir,Noida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-titile">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>abhisheksambharya05@gmail.com</p>
+                    <p><i class="fa-solid fa-phone-volume"></i>8595786094</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/a_bhishek_2003/"><i
+                                class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://github.com/Sambharya"><i class="fa-brands fa-square-github"></i></a>
+                        <a href="https://www.linkedin.com/in/abhishek-sambharya-260a3122a/"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="images/Mohd_Danish_Resume .pdf" download class="btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                       <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="Email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">submit</button>
+                    </form>
+                     <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright ">
+            <p>copyright @ Mohd Danish</p>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+    <script>
+        var sidemeu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemeu.style.right = "0";
+        }
+        function closemenu() {
+            sidemeu.style.right = "-200px";
+        }
+
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw0Q0EG3ZWSAH-cEWbefrAFi_Uzqaujh5Qdp3vccjjlExAIu60uTAcP7ITX2VQex1gb/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                 form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+
+</html>
