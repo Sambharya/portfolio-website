@@ -210,7 +210,7 @@ border-radius: 3px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-/* form .btn2 {
+form .btn2 {
     padding: 0.6999999999999993rem 2.0999999999999996rem;
     font-size: 3rem;
     margin-top: 0.1rem;
@@ -218,13 +218,14 @@ border-radius: 3px;
     border-radius: 1rem;
     background-color: #bdbfc3;
     color: white;
-} */
+}
 
 .copyright{
     width: 100%;
     text-align: center;
     padding: 1rem 0.1rem;
-    background: #262626;
+    background: black;
+    color:white;
     font-weight: 300;
     margin-top: 8rem;
 }
@@ -336,7 +337,7 @@ html{
     transform: translateY(-5px);
 }
 nav ul li a {
-    color: white;
+    color: rgb(215, 19, 19);
     text-decoration: none;
     font-size: 6rem;
     position: relative;
@@ -395,7 +396,7 @@ p.tab-links {
         transform: translateY(-5px);
     }
     nav ul li a {
-        color: white;
+        color: rgb(245, 37, 37);
         text-decoration: none;
         font-size: 5rem;
         position: relative;
@@ -434,6 +435,7 @@ p.tab-links {
   }
   nav{
     display: flex;
+    color: red;
     width: 94vw;
     align-items: center;
     justify-content: space-between;
